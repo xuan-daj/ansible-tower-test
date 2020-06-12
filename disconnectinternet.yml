@@ -1,7 +1,7 @@
 - name: Enable firewall for Domain, Public and Private profiles
-  hosts: windows
+  hosts: all
   roles:
-    - windows-firewall
+    - win-firewall
   win_firewall:
     state: enabled
     profiles:

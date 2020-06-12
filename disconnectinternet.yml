@@ -1,4 +1,5 @@
 - name: Enable firewall for Domain, Public and Private profiles
+  hosts: all
   win_firewall:
     state: enabled
     profiles:

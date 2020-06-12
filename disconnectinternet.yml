@@ -1,9 +1,8 @@
-- name: Create Firewall Rule
-  win_firewall_rule:
-    name: BlockOutbound
-    localport: any
-    action: block
-    direction: in
-    protocol: tcp
-    state: present
-    enabled: yes
+- name: Enable firewall for Domain, Public and Private profiles
+  win_firewall:
+    state: enabled
+    profiles:
+    - Domain
+    - Private
+    - Public
+  tags: enable_firewall

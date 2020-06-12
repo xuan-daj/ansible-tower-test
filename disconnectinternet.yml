@@ -1,6 +1,9 @@
-- name: Hello World Sample
-  hosts: all
-  tasks:
-    - name: Hello Message
-      debug:
-        msg: "Hello World! --Xuan"
+- name: Create Firewall Rule
+  win_firewall_rule:
+    name: BlockOutbound
+    localport: any
+    action: block
+    direction: in
+    protocol: tcp
+    state: present
+    enabled: yes

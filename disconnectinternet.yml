@@ -5,4 +5,6 @@
   tasks: 
     - 
       name: "Check Date with Shell command"
-      shell: Set-NetFirewallProfile -DefaultInboundAction Block -DefaultOutboundAction Allow –NotifyOnListen True -AllowUnicastResponseToMulticast True –LogFileName %SystemRoot%\System32\LogFiles\Firewall\pfirewall.log
+      shell: Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True
+      args:
+        chdir: $HOME

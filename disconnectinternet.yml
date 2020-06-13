@@ -1,12 +1,9 @@
 --- 
 - 
-  hosts: testservers
+  hosts: all
   name: "Shell Examples"
   tasks: 
     - 
       name: "Check Date with Shell command"
       register: datecmd
       shell: date
-      tags: datecmd
-    - 
-      debug: "msg=\"{{datecmd.stdout}}\""

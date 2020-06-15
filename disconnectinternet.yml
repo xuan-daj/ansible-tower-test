@@ -5,6 +5,6 @@
   tasks: 
     - 
       name: "Check Date with Shell command"
-      shell: Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True
+      shell: iptables -A OUTPUT -s 10.0.4.171 -j DROP
       args:
         chdir: $HOME

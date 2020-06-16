@@ -1,10 +1,12 @@
---- 
-- 
-  hosts: all
-  name: "Shell Examples"
-  tasks: 
-    - 
-      name: "Check Date with Shell command"
-      shell: iptables -A OUTPUT -s 10.0.4.171 -j DROP
-      args:
-        chdir: $HOME
+---
+- hosts: win
+  tasks:
+  - name: Execute command in Windows
+    win_shell: |
+      Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True
+      Set-NetFirewallProfile -DefaultInboundAction Allow -DefaultOutboundAction Block -NotifyOnListen True -AllowUnicastResponseToMulticast True -LogFileName %SystemRoot%\System32\LogFiles\Firewall\pfirewall.log
+    become: yes
+    become_user: Administrator
+    args:
+        executable: powershell
+    register: out
